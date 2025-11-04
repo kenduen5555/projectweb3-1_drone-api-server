@@ -1,6 +1,7 @@
 import 'dotenv/config';
-
+import cors from 'cors';
 import express from 'express';
+app.use(cors());
 const app = express();
 const DRONE_CONFIG_URL = process.env.DRONE_CONFIG_URL;
 const DRONE_LOG_URL = process.env.DRONE_LOG_URL;
@@ -53,16 +54,24 @@ app.get('/status/:droneId', async (req, res) =>{
 
 })
 
-app.get('/configs/:droneId', async (req, res) =>{
+app.get('/configs/:droneId', async (req, res) => {
+  try {
     const droneId = Number(req.params.droneId);
     const droneConfigs = await getDroneConfigs();
-    const config = droneConfigs.find(drone=> drone.drone_id == droneId);
-    const {drone_id , drone_name , light , country , weight} = config;
+    const config = droneConfigs.find(drone => drone.drone_id == droneId);
+    if (!config) {
+      return res.status(404).json({ error: `Drone ID ${droneId} not found` });
+    }
+    const { drone_id, drone_name, light, country, weight } = config;
     // console.log(droneConfigs);
     // delete config.condition;
     // delete config.population;
     res.json({drone_id: droneId , drone_name , light , country , weight});
     // res.send('oh-good pass');
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 })
 
 app.get('/logs/:droneId', async (req, res) =>{
