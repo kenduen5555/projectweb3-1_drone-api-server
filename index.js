@@ -7,10 +7,10 @@ const DRONE_LOG_URL = process.env.DRONE_LOG_URL;
 const LOG_API_TOKEN = process.env.LOG_API_TOKEN;
 
 app.get('/', (req, res) =>{
-    res.send(`สามารถใช้ 
-    /configs/droneId 
-    /status/droneId
-    /logs/droneId หรือ
+    res.send(`สามารถใช้ <br>
+    /configs/droneId <br>
+    /status/droneId <br>
+    /logs/droneId หรือ <br>
     /logs/droneId?page=2 เพื่อไปหน้าต่อไปได้`);
 })
 
