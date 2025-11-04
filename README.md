@@ -15,18 +15,18 @@ It connects to:
 | GET | /logs/:droneId | Get latest 12 logs |
 | POST | /logs | Create new drone log |
 
-How to Run
+1.How to Run
 
 Install dependencies:
 
 npm install
 
 
-Start server:
+2.Start server:
 
 npm start
 
 
-Visit:
+3.Visit:
 
 http://localhost:3002
