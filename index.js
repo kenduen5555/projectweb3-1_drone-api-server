@@ -29,18 +29,15 @@ async function getDroneConfigs() {
     return data;
 }
 
-async function getDroneLog(droneId) {
-    const url = `${DRONE_LOG_URL}?filter=drone_id="${droneId}"&sort=-created&perPage=12`;
+async function getDroneLog(droneId, page = 1) {
+    const url = `${DRONE_LOG_URL}?filter=drone_id="${droneId}"&sort=-created&perPage=12&page=${page}`;
     const respone2 = await fetch(url,{
         headers: {
             'Authorization': `Bearer ${LOG_API_TOKEN}`
         }
     });
     const body2 = await respone2.json();
-    const items = body2.items;
-    console.log(items);
-
-    return items;
+    return body2;
 }
 
 app.get('/status/:droneId', async (req, res) =>{
@@ -66,7 +63,9 @@ app.get('/configs/:droneId', async (req, res) =>{
 
 app.get('/logs/:droneId', async (req, res) =>{
     const droneId = Number(req.params.droneId);
-    const droneLog = await getDroneLog(droneId);
+    const page = Number(req.query.page) || 1;
+    const data2 = await getDroneLog(droneId, page);
+    const droneLog = data2.items;
     if (!droneLog || droneLog.length === 0) {
         return res.status(404).json({ error: `No logs found for drone ${droneId}` });
     }
@@ -78,7 +77,12 @@ app.get('/logs/:droneId', async (req, res) =>{
         celsius: log.celsius
     }));
 
-    res.json(logs);
+    res.json({
+        page: page,
+        totalPages: data2.totalPages,
+        totalItems: data2.totalItems,
+        logs
+    });
 
 })
 
