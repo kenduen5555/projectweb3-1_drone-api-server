@@ -32,6 +32,8 @@ cd <your-repo-name>
 
 npm install
 
+---
+
 ### 3️⃣ สร้างไฟล์ .env
 
 สร้างไฟล์ชื่อ .env ที่โฟลเดอร์หลัก แล้วใส่ค่าเพื่อกำหนด:
@@ -41,6 +43,8 @@ DRONE_CONFIG_URL=https://script.google.com/macros/s/AKfycbzwclqJRodyVjzYyY-NTQDb
 DRONE_LOG_URL=https://app-tracking.pockethost.io/api/collections/drone_logs/records
 PERPAGE=12
 LOG_API_TOKEN=20250901efx
+
+---
 
 ### 4️⃣ รันเซิร์ฟเวอร์
 node index.js
@@ -62,7 +66,7 @@ Server is running on http://localhost:(PORT)
 
 ---
 
-🌐 Environment Variables
+## 🌐 Environment Variables
 Variable	Description
 PORT	พอร์ตที่ใช้รันเซิร์ฟเวอร์
 DRONE_CONFIG_URL	URL ของ Drone Config Server
@@ -70,7 +74,11 @@ DRONE_LOG_URL	URL ของ Drone Log Server
 LOG_API_TOKEN	Bearer Token สำหรับเข้าถึง Drone Log Server
 PERPAGE	จำนวน log ต่อหน้าสำหรับ pagination
 📡 API Documentation
-🔹 GET /configs/:droneId
+
+---
+
+
+### 🔹 GET /configs/:droneId
 
 Description: ดึงข้อมูลการตั้งค่าของโดรน
 Response Example:
@@ -83,7 +91,9 @@ Response Example:
   "weight": 21
 }
 
-🔹 GET /status/:droneId
+---
+
+### 🔹 GET /status/:droneId
 
 Description: ดึงสถานะของโดรน
 Response Example:
@@ -92,7 +102,9 @@ Response Example:
   "condition": "good"
 }
 
-🔹 GET /logs/:droneId?page=1
+---
+
+### 🔹 GET /logs/:droneId?page=1
 
 Description: ดึงข้อมูล Log ล่าสุดของโดรน
 รองรับ Pagination (12 รายการต่อหน้า)
@@ -121,7 +133,9 @@ Response Example:
   }
 ]
 
-🔹 POST /logs
+---
+
+## 🔹 POST /logs
 
 Description: เพิ่มข้อมูล log ใหม่เข้า Drone Log Server
 Request Body Example:
@@ -146,7 +160,9 @@ Response Example:
   }
 }
 
-🔁 Pagination
+---
+
+## 🔁 Pagination
 
 ระบบรองรับ Pagination ผ่าน query parameter ?page=
 โดยจะแสดง 12 รายการต่อหน้า (เรียงจาก log ล่าสุดขึ้นก่อน)
@@ -155,3 +171,5 @@ Response Example:
 ตัวอย่าง	URL
 หน้าแรก	GET /logs/3001?page=1
 หน้าถัดไป	GET /logs/3001?page=2
+
+---
