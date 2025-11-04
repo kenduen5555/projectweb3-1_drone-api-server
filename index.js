@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
-app.use(cors());
 const app = express();
+app.use(cors());
 const DRONE_CONFIG_URL = process.env.DRONE_CONFIG_URL;
 const DRONE_LOG_URL = process.env.DRONE_LOG_URL;
 const LOG_API_TOKEN = process.env.LOG_API_TOKEN;
