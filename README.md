@@ -11,18 +11,6 @@
 
 ---
 
-## 📚 Table of Contents
-1. [Features](#-features)
-2. [Technology Stack](#-technology-stack)
-3. [Installation & Setup](#️-installation--setup)
-4. [Environment Variables](#-environment-variables)
-5. [API Documentation](#-api-documentation)
-6. [Pagination](#-pagination)
-7. [Deployment](#-deployment)
-8. [License](#-license)
-
----
-
 ## ✨ Features
 
 | Endpoint | Method | Description |
