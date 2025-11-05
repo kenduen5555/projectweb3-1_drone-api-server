@@ -91,15 +91,19 @@ Server is running on http://localhost:(PORT)
 
 Description: ดึงข้อมูลการตั้งค่าของโดรน
 Response Example:
-"
+
 {
   "drone_id": 66010608,
+  
   "drone_name": "Exeoid",
+  
   "light": "on",
+  
   "country": "Japan",
+  
   "weight": 21
 }
-"
+
 ---
 
 ### 🔹 GET /status/:droneId
@@ -125,22 +129,18 @@ page	Number	เลขหน้าที่ต้องการดู (ค่า
 
 Response Example:
 
-[
   {
     "drone_id": 66010608,
+    
     "drone_name": "Exeoid",
-    "created": "2025-11-03T17:58:08.557Z",
-    "country": "Japan",
-    "celsius": 21.3
-  },
-  {
-    "drone_id": 66010608,
-    "drone_name": "Exeoid",
+    
     "created": "2025-11-03T17:57:58.136Z",
+    
     "country": "Japan",
+    
     "celsius": 8
   }
-]
+
 
 ---
 
@@ -151,23 +151,15 @@ Request Body Example:
 
 {
   "drone_id": 66010608,
+  
   "drone_name": "Exeoid",
+  
   "country": "Japan",
+  
   "celsius": 22.5
 }
 
 
-Response Example:
-
-{
-  "message": "Log created successfully",
-  "log": {
-    "drone_id": 66010608,
-    "drone_name": "Exeoid",
-    "country": "Japan",
-    "celsius": 22.5
-  }
-}
 
 ---
 
