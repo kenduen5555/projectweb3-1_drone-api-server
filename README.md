@@ -7,7 +7,7 @@
 
 🧾 Drone Log Server (PocketBase) – สำหรับเก็บและเรียกดูข้อมูล log ของโดรน
 
-สามารถรันได้จาก https://projectweb3-1-drone-api-server.onrender.com/
+สามารถเข้าถึงเรียกใช้ได้บน cloud host โดยตรงที่ https://projectweb3-1-drone-api-server.onrender.com/
 
 ---
 
@@ -23,8 +23,9 @@
 
 ## ⚙️ Installation & Setup
 ### 1️⃣ Clone Project จาก GitHub
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/kenduen5555/projectweb3-1_drone-api-server.git
+
+cd projectweb3-1_drone-api-server
 
 ---
 
@@ -40,10 +41,12 @@ npm install
 
 สร้างไฟล์ชื่อ .env ที่โฟลเดอร์หลัก แล้วใส่ค่าเพื่อกำหนด:
 
-PORT=3002
 DRONE_CONFIG_URL=https://script.google.com/macros/s/AKfycbzwclqJRodyVjzYyY-NTQDb9cWG6Hoc5vGAABVtr5-jPA_ET_2IasrAJK4aeo5XoONiaA/exec
+
 DRONE_LOG_URL=https://app-tracking.pockethost.io/api/collections/drone_logs/records
+
 PERPAGE=12
+
 LOG_API_TOKEN=20250901efx
 
 ---
@@ -53,13 +56,16 @@ node index.js
 
 
 หรือใช้ Nodemon เพื่อรันอัตโนมัติเมื่อไฟล์มีการเปลี่ยนแปลง:
+
 npx nodemon index.js
 
 
 ในไฟล์ package.json ได้ใส่ script ว่า:
+
 "dev": "nodemon index.js"
 
 ดังนั้นสามารถใช้คำสั่งนี้แทนได้:
+
 npm run dev
 
 หลังจากรันเสร็จจะได้ข้อความ:
@@ -69,22 +75,23 @@ Server is running on http://localhost:(PORT)
 ---
 
 ## 🌐 Environment Variables
-Variable	Description
-PORT	พอร์ตที่ใช้รันเซิร์ฟเวอร์
-DRONE_CONFIG_URL	URL ของ Drone Config Server
-DRONE_LOG_URL	URL ของ Drone Log Server
-LOG_API_TOKEN	Bearer Token สำหรับเข้าถึง Drone Log Server
-PERPAGE	จำนวน log ต่อหน้าสำหรับ pagination
-📡 API Documentation
+| Variable |	Description |
+|------|-------------|
+| PORT |	พอร์ตที่ใช้รันเซิร์ฟเวอร์ | 
+| DRONE_CONFIG_URL |	URL ของ Drone Config Server |
+| DRONE_LOG_URL	URL | ของ Drone Log Server |
+| LOG_API_TOKEN	| Bearer Token สำหรับเข้าถึง Drone Log Server |
+| PERPAGE	| จำนวน log ต่อหน้าสำหรับ pagination |
 
 ---
 
+## 📡 API Documentation
 
 ### 🔹 GET /configs/:droneId
 
 Description: ดึงข้อมูลการตั้งค่าของโดรน
 Response Example:
-
+"
 {
   "drone_id": 66010608,
   "drone_name": "Exeoid",
@@ -92,7 +99,7 @@ Response Example:
   "country": "Japan",
   "weight": 21
 }
-
+"
 ---
 
 ### 🔹 GET /status/:droneId
