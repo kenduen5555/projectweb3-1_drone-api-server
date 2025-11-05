@@ -93,15 +93,17 @@ Description: ดึงข้อมูลการตั้งค่าของ�
 Response Example:
 
 {
-  "drone_id": 66010608,
+
+    "drone_id": 66010608,
   
-  "drone_name": "Exeoid",
+    "drone_name": "Exeoid",
   
-  "light": "on",
+    "light": "on",
   
-  "country": "Japan",
+    "country": "Japan",
   
-  "weight": 21
+    "weight": 21
+    
 }
 
 ---
@@ -112,7 +114,9 @@ Description: ดึงสถานะของโดรน
 Response Example:
 
 {
-  "condition": "good"
+
+    "condition": "good"
+    
 }
 
 ---
@@ -130,6 +134,7 @@ page	Number	เลขหน้าที่ต้องการดู (ค่า
 Response Example:
 
   {
+  
     "drone_id": 66010608,
     
     "drone_name": "Exeoid",
@@ -139,6 +144,7 @@ Response Example:
     "country": "Japan",
     
     "celsius": 8
+    
   }
 
 
@@ -150,13 +156,15 @@ Description: เพิ่มข้อมูล log ใหม่เข้า Dron
 Request Body Example:
 
 {
-  "drone_id": 66010608,
+
+    "drone_id": 66010608,
   
-  "drone_name": "Exeoid",
+    "drone_name": "Exeoid",
   
-  "country": "Japan",
+    "country": "Japan",
   
-  "celsius": 22.5
+    "celsius": 22.5
+
 }
 
 
